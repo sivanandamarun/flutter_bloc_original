@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_original/cubit/login_cubit.dart';
+import 'package:flutter_bloc_original/pages/DashBoardProvider.dart';
 import 'package:flutter_bloc_original/pages/dashboard_page.dart';
 
 class Login extends StatelessWidget {
@@ -30,7 +31,7 @@ class Login extends StatelessWidget {
     if (state is LoginLoadedState) {
       Navigator.push(
           context, MaterialPageRoute(builder: (
-          _) => const Dashboard()));
+          _) => const DashBoardProvider()));
     }else if(state is LoginLoadedErrorState){
       ScaffoldMessenger.of(context)
           .showSnackBar(const SnackBar(content: Text('text')));

@@ -18,15 +18,14 @@ class Dashboard extends StatelessWidget {
         child: BlocBuilder<GetAllUniversitiesCubit, GetAllUniversitiesState>(
           builder: (context, state) {
             if (state is GetAllUniversitiesLoadingState) {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             } else if (state is ErrorState) {
-              return Center(
+              return const Center(
                 child: Icon(Icons.close),
               );
             } else if (state is GetAllUniversitiesLoadingCompletedState) {
-              // final university = state.allUniversitiesResponse?.results;
               final university = state.allUniversitiesResponse;
               return ListView.builder(
                 itemCount: university?.length,
@@ -46,15 +45,3 @@ class Dashboard extends StatelessWidget {
     );
   }
 }
-
-/*return SafeArea(
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
-              ),
-              onPressed: () {
-
-              },
-              child: const Text('University list'),
-            ),
-          );*/
