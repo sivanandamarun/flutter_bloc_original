@@ -24,13 +24,17 @@ class _DashBoardMenuState extends State<DashBoardMenu> {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
+          width: 150.0,
+          height: 30.0,
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(25.0),
             color: Colors.blue
           ),
-          child: Text(widget.title,style: const TextStyle(
-            color: Colors.white,
-            fontSize: 14,
-          ),
+          child: Center(
+            child: Text(widget.title,style: const TextStyle(
+              color: Colors.white,
+              fontSize: 14,
+            ),
+            ),
           ),
         ),
       ),
