@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_original/cubit/login_cubit.dart';
 import 'package:flutter_bloc_original/repository/app_repository.dart';
 
-import 'pages/login_page.dart';
+import 'pages/LoginPage.dart';
 class AppRouter {
 AppRepository repository = AppRepository();
 

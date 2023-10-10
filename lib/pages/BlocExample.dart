@@ -7,8 +7,8 @@ import 'package:flutter_bloc_original/univercity_cubits/UniversitiesRepository.d
 import '../univercity_cubits/GetAllUnivercityCubit.dart';
 import '../univercity_cubits/GetAllUniversitiesState.dart';
 
-class Dashboard extends StatelessWidget {
-  const Dashboard({Key? key}) : super(key: key);
+class BlocExample extends StatelessWidget {
+  const BlocExample({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

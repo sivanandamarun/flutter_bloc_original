@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../provider_example/UniversityDataProvider.dart';
 import '../widgets/DashboardMenu.dart';
-import 'dashboard_page.dart';
+import 'BlocExample.dart';
 
 class DashBoardProvider extends StatefulWidget {
   const DashBoardProvider({Key? key}) : super(key: key);
@@ -39,7 +39,7 @@ class _BodyWidgetState extends State<BodyWidget> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         DashBoardMenu(title: 'Bloc Example',onMenuClick: (){
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => const Dashboard()),);
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => const BlocExample()),);
         }),
         DashBoardMenu(title: 'Provider Example',onMenuClick: (){
             Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => ChangeNotifierProvider(

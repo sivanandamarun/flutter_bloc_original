@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_original/cubit/login_cubit.dart';
 import 'package:flutter_bloc_original/pages/DashBoardProvider.dart';
-import 'package:flutter_bloc_original/pages/dashboard_page.dart';
+import 'package:flutter_bloc_original/pages/BlocExample.dart';
 
 class Login extends StatelessWidget {
    Login({Key? key}) : super(key: key);
@@ -96,73 +96,3 @@ class Login extends StatelessWidget {
     );
   }
 }
-
-
-/*BlocBuilder<LoginCubit, LoginState>(
-        builder: (context, state) {
-          if(state is LoginInitialState) {
-            return SingleChildScrollView(
-              child: Column(
-                children: <Widget>[
-                  const SizedBox(height: 50,),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
-                    child: TextField(
-                      controller: userName,
-                      decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'Email',
-                          hintText: 'Enter valid email id as abc@gmail.com'),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        left: 15.0, right: 15.0, top: 15, bottom: 0),
-                    child: TextField(
-                      obscureText: true,
-                      controller: password,
-                      decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'Password',
-                          hintText: 'Enter secure password'),
-                    ),
-                  ),
-                  const SizedBox(height: 50,),
-                  Container(
-                    height: 50,
-                    width: 250,
-                    decoration: BoxDecoration(
-                        color: Colors.blue,
-                        borderRadius: BorderRadius.circular(20)),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        BlocProvider.of<LoginCubit>(context)
-                            .checkUserNamePassword(userName.text.toString(),
-                            password.text.toString());
-                        /*Navigator.push(
-                          context, MaterialPageRoute(builder: (
-                          _) => const Dashboard()));*/
-                      },
-                      child: state is LoginLoadingState
-                          ? const CircularProgressIndicator.adaptive()
-                          : const Text(
-                        'Login',
-                        style: TextStyle(color: Colors.white, fontSize: 25),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 130,
-                  ),
-                  const Text('New User? Create Account')
-                ],
-              ),
-            );
-          }
-          else if(state is LoginLoadedState){
-            return Container();
-          }else{
-            return Container();
-          }
-        },
-      ),*/
