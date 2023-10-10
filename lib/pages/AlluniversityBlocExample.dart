@@ -2,10 +2,12 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc_original/models/UniversitiesResponse.dart';
 import 'package:flutter_bloc_original/univercity_cubits/UniversitiesRepository.dart';
 
 import '../univercity_cubits/GetAllUnivercityCubit.dart';
 import '../univercity_cubits/GetAllUniversitiesState.dart';
+import 'UniversityDetailsPage.dart';
 
 class BlocExample extends StatelessWidget {
   const BlocExample({Key? key}) : super(key: key);
@@ -30,9 +32,14 @@ class BlocExample extends StatelessWidget {
               return ListView.builder(
                 itemCount: university?.length,
                 itemBuilder: (context, index) =>
-                    Card(
-                      child: ListTile(
-                        title: Text('${university?[index].name}'),
+                    GestureDetector(
+                      onTap: (){
+                        onItemTap(university![index],context);
+                      },
+                      child: Card(
+                        child: ListTile(
+                          title: Text('${university?[index].name}'),
+                        ),
                       ),
                     ),
               );
@@ -43,5 +50,10 @@ class BlocExample extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void onItemTap(AllUniversitiesResponse university, BuildContext context) {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (_) =>  UniversityDetailsPage(universityDetails: university,)));
   }
 }

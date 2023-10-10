@@ -4,16 +4,16 @@ import 'package:provider/provider.dart';
 
 import '../provider_example/UniversityDataProvider.dart';
 import '../widgets/DashboardMenu.dart';
-import 'BlocExample.dart';
+import 'AlluniversityBlocExample.dart';
 
-class DashBoardProvider extends StatefulWidget {
-  const DashBoardProvider({Key? key}) : super(key: key);
+class DashBoard extends StatefulWidget {
+  const DashBoard({Key? key}) : super(key: key);
 
   @override
-  State<DashBoardProvider> createState() => _DashBoardProviderState();
+  State<DashBoard> createState() => _DashBoardState();
 }
 
-class _DashBoardProviderState extends State<DashBoardProvider> {
+class _DashBoardState extends State<DashBoard> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

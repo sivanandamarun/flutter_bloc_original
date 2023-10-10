@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_original/cubit/login_cubit.dart';
-import 'package:flutter_bloc_original/pages/DashBoardProvider.dart';
-import 'package:flutter_bloc_original/pages/BlocExample.dart';
+import 'package:flutter_bloc_original/pages/DashBoard.dart';
+import 'package:flutter_bloc_original/pages/AlluniversityBlocExample.dart';
 
 class Login extends StatelessWidget {
    Login({Key? key}) : super(key: key);
@@ -31,10 +31,10 @@ class Login extends StatelessWidget {
     if (state is LoginLoadedState) {
       Navigator.push(
           context, MaterialPageRoute(builder: (
-          _) => const DashBoardProvider()));
+          _) => const DashBoard()));
     }else if(state is LoginLoadedErrorState){
       ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text('text')));
+          .showSnackBar(const SnackBar(content: Text('Error In login')));
     }
   }
 

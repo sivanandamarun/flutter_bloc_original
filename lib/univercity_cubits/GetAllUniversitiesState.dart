@@ -17,7 +17,7 @@ class GetAllUniversitiesLoadingState extends GetAllUniversitiesState{
 }
 
 class GetAllUniversitiesLoadingCompletedState extends GetAllUniversitiesState {
-  GetAllUniversitiesLoadingCompletedState(this.allUniversitiesResponse);
+  const GetAllUniversitiesLoadingCompletedState(this.allUniversitiesResponse);
   final List<AllUniversitiesResponse>? allUniversitiesResponse;
   // final AllMoviesResponse? allUniversitiesResponse;
   // @override
