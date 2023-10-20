@@ -1,4 +1,4 @@
-# flutter_bloc_original
+# flutterBlocOriginal
 
 A new Flutter project.
 

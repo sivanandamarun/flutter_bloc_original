@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_original/pages/LoginPage.dart';
+import 'package:flutterBlocOriginal/pages/LoginPage.dart';
 
 import 'app_route.dart';
 

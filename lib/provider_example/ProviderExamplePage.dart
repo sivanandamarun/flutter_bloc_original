@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_original/provider_example/UniversityDataProvider.dart';
+import 'package:flutterBlocOriginal/provider_example/UniversityDataProvider.dart';
 import 'package:provider/provider.dart';
 
 class ProviderExample extends StatefulWidget {

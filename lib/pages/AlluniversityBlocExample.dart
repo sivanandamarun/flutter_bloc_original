@@ -2,8 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_bloc_original/models/UniversitiesResponse.dart';
-import 'package:flutter_bloc_original/univercity_cubits/UniversitiesRepository.dart';
+import 'package:flutterBlocOriginal/models/UniversitiesResponse.dart';
+import 'package:flutterBlocOriginal/univercity_cubits/UniversitiesRepository.dart';
 
 import '../univercity_cubits/GetAllUnivercityCubit.dart';
 import '../univercity_cubits/GetAllUniversitiesState.dart';

@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_bloc_original/models/UniversitiesResponse.dart';
+import 'package:flutterBlocOriginal/models/UniversitiesResponse.dart';
 
 import '../models/GetAllmoviewsResponse.dart';
 

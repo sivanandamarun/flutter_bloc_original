@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_bloc_original/cubit/login_cubit.dart';
-import 'package:flutter_bloc_original/pages/DashBoard.dart';
-import 'package:flutter_bloc_original/pages/AlluniversityBlocExample.dart';
+import 'package:flutterBlocOriginal/cubit/login_cubit.dart';
+import 'package:flutterBlocOriginal/pages/DashBoard.dart';
+import 'package:flutterBlocOriginal/pages/AlluniversityBlocExample.dart';
 
 class Login extends StatelessWidget {
    Login({Key? key}) : super(key: key);

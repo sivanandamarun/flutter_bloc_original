@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_original/provider_example/ProviderExamplePage.dart';
+import 'package:flutterBlocOriginal/provider_example/ProviderExamplePage.dart';
 import 'package:provider/provider.dart';
 
 import '../provider_example/UniversityDataProvider.dart';
