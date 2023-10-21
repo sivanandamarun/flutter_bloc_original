@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "930770526630",
+    "project_id": "flutterblocoriginal",
+    "storage_bucket": "flutterblocoriginal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:930770526630:android:99d618e5add70159e72f67",
+        "android_client_info": {
+          "package_name": "com.example.flutterBlocOriginal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFqZf27LPDj_66tS2qdqKllro8xIAFs_o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

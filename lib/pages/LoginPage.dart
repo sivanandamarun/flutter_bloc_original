@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterBlocOriginal/pages/SignUp/SignUp.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterBlocOriginal/cubit/login_cubit.dart';
 import 'package:flutterBlocOriginal/pages/DashBoard.dart';
@@ -7,9 +8,8 @@ import 'package:flutterBlocOriginal/pages/AlluniversityBlocExample.dart';
 class Login extends StatelessWidget {
    Login({Key? key}) : super(key: key);
 
-   TextEditingController userName = TextEditingController(text:'siva@g.com');
-   TextEditingController password = TextEditingController(text : '123');
-
+   TextEditingController userName = TextEditingController(text:'sivanandam1000@gmail.com');
+   TextEditingController password = TextEditingController(text : 'welcome');
 
   @override
   Widget build(BuildContext context) {
@@ -74,12 +74,13 @@ class Login extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20)),
             child: ElevatedButton(
               onPressed: () {
-                BlocProvider.of<LoginCubit>(context)
-                    .checkUserNamePassword(userName.text.toString(),
-                    password.text.toString());
-                /*Navigator.push(
-                          context, MaterialPageRoute(builder: (
-                          _) => const Dashboard()));*/
+                try {
+                  BlocProvider.of<LoginCubit>(context)
+                      .checkUserNamePassword(userName.text.toString(),
+                      password.text.toString());
+                } on Exception catch (e) {
+                  // TODO
+                }
               },
               child:  const Text(
                 'Login',
@@ -90,9 +91,16 @@ class Login extends StatelessWidget {
           const SizedBox(
             height: 130,
           ),
-          const Text('New User? Create Account')
+
+          TextButton(onPressed: (){
+            callSignUp(context);
+          }, child: const Text('New User? Create Account'))
         ],
       ),
     );
+  }
+
+  void callSignUp(BuildContext context) {
+    Navigator.pushNamed(context,'signUp');
   }
 }

@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutterBlocOriginal/pages/LoginPage.dart';
 
+import 'Firebase/FirebaseAPI.dart';
 import 'app_route.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+final navigatorKey = GlobalKey< NavigatorState>();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  await FirebaseAPI().initNotification();
   runApp(MyApp(router: AppRouter()));
 }
 
@@ -20,6 +29,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      navigatorKey: navigatorKey,
       initialRoute: '/',
       onGenerateRoute: router!.generateRoute,
     );
