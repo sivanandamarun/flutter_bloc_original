@@ -1,18 +1,83 @@
+import 'dart:convert';
+
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 import '../main.dart';
 
-Future<void> firebaseBackgroundHandler(RemoteMessage message) async {
-  if (kDebugMode) {
-    print('TITLE ${message.notification?.title}');
-    print('${message.notification?.body}');
-    print('${message.data}');
-  }
-}
-
 class FirebaseAPI {
-  final firebase = FirebaseMessaging.instance;
+  // create a instance of firebase messaging
+  final firebaseMessaging = FirebaseMessaging.instance;
+
+  final androidChannel = const AndroidNotificationChannel(
+      'high_importance_channel', 'high_importance_notifications',
+      description: 'sdfsdfsd', importance: Importance.defaultImportance);
+
+  final localNotification = FlutterLocalNotificationsPlugin();
+
+  //initialize the notification
+  Future<void> initNotification() async {
+    firebaseMessaging.requestPermission();
+    final token = await firebaseMessaging.getToken();
+    print(token);
+    initPushNotification();
+    initLocalNotification();
+  }
+
+  void handleMessage(RemoteMessage? message) {
+    if (message == null) return;
+    navigatorKey.currentState?.pushNamed('notification', arguments: message);
+  }
+
+  Future<void> initPushNotification() async {
+    firebaseMessaging.getInitialMessage().then(handleMessage);
+    FirebaseMessaging.onMessageOpenedApp.listen(handleMessage);
+    FirebaseMessaging.onMessage.listen((message) {
+      final notification = message.notification;
+      if (notification == null) return;
+      localNotification.show(
+        notification.hashCode,
+        notification.title,
+        notification.body,
+        NotificationDetails(
+          android: AndroidNotificationDetails(
+              androidChannel.id, androidChannel.name,
+              channelDescription: androidChannel.description,
+              icon: '@drawable/ic_launcher'
+          ),
+        ),
+        payload: jsonEncode(message.toMap()),
+      );
+    });
+  }
+
+  Future initLocalNotification() async {
+
+    const initializationSettingsIOS = DarwinInitializationSettings(
+        requestAlertPermission: true,
+        requestBadgePermission: true,
+        requestSoundPermission: true);
+
+    const AndroidInitializationSettings androidInitializationSettings =
+        AndroidInitializationSettings('@drawable/ic_launcher');
+    const settings = InitializationSettings(
+        android: androidInitializationSettings, iOS: initializationSettingsIOS);
+    await localNotification.initialize(
+      settings,
+      onDidReceiveNotificationResponse: (details) {
+        final message =
+            RemoteMessage.fromMap(jsonDecode(details.payload!.toString()));
+        handleMessage(message);
+      },
+    );
+    final platform = localNotification.resolvePlatformSpecificImplementation<
+        AndroidFlutterLocalNotificationsPlugin>();
+    await platform?.createNotificationChannel(androidChannel);
+  }
+
+/*final firebase = FirebaseMessaging.instance;
 
   Future<void> initNotification() async {
     await firebase.requestPermission();
@@ -38,5 +103,5 @@ class FirebaseAPI {
    FirebaseMessaging.instance.getInitialMessage().then(handleMessage);
    FirebaseMessaging.onMessageOpenedApp.listen(handleMessage);
    FirebaseMessaging.onBackgroundMessage(firebaseBackgroundHandler);
-  }
+  }*/
 }
