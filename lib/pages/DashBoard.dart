@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import '../provider_example/UniversityDataProvider.dart';
 import '../widgets/DashboardMenu.dart';
 import 'AlluniversityBlocExample.dart';
+import 'AppLifecycleExample.dart';
 
 class DashBoard extends StatefulWidget {
   const DashBoard({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class _DashBoardState extends State<DashBoard> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body : SafeArea(
+      body: SafeArea(
         child: BodyWidget(),
       ),
     );
@@ -35,19 +36,42 @@ class _BodyWidgetState extends State<BodyWidget> {
   @override
   Widget build(BuildContext context) {
     return Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        DashBoardMenu(title: 'Bloc Example',onMenuClick: (){
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => const BlocExample()),);
-        }),
-        DashBoardMenu(title: 'Provider Example',onMenuClick: (){
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => ChangeNotifierProvider(
-                create: (BuildContext context) => UniversityDataProvider(),
-                child: const ProviderExample())),);
-        }),
+        DashBoardMenu(
+            title: 'Bloc Example',
+            onMenuClick: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) => const BlocExample()),
+              );
+            }),
+        DashBoardMenu(
+            title: 'Provider Example',
+            onMenuClick: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) => ChangeNotifierProvider(
+                        create: (BuildContext context) =>
+                            UniversityDataProvider(),
+                        child: const ProviderExample())),
+              );
+            }),
+        DashBoardMenu(
+            title: 'App Life Cycle Example',
+            onMenuClick: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (BuildContext context) =>
+                      const AppLifeCycleExample(),
+                ),
+              );
+            }),
       ],
     );
   }
 }
-
