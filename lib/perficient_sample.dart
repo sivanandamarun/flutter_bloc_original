@@ -26,15 +26,25 @@ class PaymentCenterCarouselCard extends BaseStatelessWidget {
                 border: Border.all(color: NYLColors.grey30, width: 1),
                 gradient: NYLGradient.paymentCenterPaymentCardGradient,
                 boxShadow: const [NYLBoxShadow.shadow5]),
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: 
+                // mainAxisSize: MainAxisSize.max,
+                // crossAxisAlignment: CrossAxisAlignment.start,
+                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [_headerSection, _content]),
-                  CarouselFooterCard()
+                  _headerSection,
+                  Expanded(
+                    child: NYLScrollbar(
+                      child: SingleChildScrollView(
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            // crossAxisAlignment: CrossAxisAlignment.start,
+                            // mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [_content, CarouselFooterCard()]),
+                      ),
+                    ),
+                  ),
                 ])));
   }
 
