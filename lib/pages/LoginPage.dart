@@ -78,9 +78,7 @@ class Login extends StatelessWidget {
                   BlocProvider.of<LoginCubit>(context)
                       .checkUserNamePassword(userName.text.toString(),
                       password.text.toString());
-                } on Exception catch (e) {
-                  // TODO
-                }
+                } on Exception catch (e) {}
               },
               child:  const Text(
                 'Login',

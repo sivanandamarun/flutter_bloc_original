@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutterBlocOriginal/pages/supaBase/SupaBasePdfFileUpload.dart';
 import 'package:flutterBlocOriginal/provider_example/ProviderExamplePage.dart';
 import 'package:provider/provider.dart';
 
+import 'unittest/UnitTestCaseExample.dart';
 import '../provider_example/UniversityDataProvider.dart';
 import '../widgets/DashboardMenu.dart';
 import 'AlluniversityBlocExample.dart';
@@ -68,6 +70,27 @@ class _BodyWidgetState extends State<BodyWidget> {
                 MaterialPageRoute(
                   builder: (BuildContext context) =>
                       const AppLifeCycleExample(),
+                ),
+              );
+            }),
+        DashBoardMenu(
+            title: 'Unit Test Example',
+            onMenuClick: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const UnitTestCaseExample(),
+                ),
+              );
+            }),
+
+        DashBoardMenu(
+            title: 'SupaBase file upload Example',
+            onMenuClick: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SupaBasePdfFileUploadPage(),
                 ),
               );
             }),

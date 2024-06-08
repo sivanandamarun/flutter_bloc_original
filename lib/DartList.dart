@@ -4,8 +4,6 @@ main(){
       1.fixed length list
       2.growable list
     */
-
-
   // Fixed length list declaration
 
   List<int> fixedLengthList = List<int>.filled(10, 0);

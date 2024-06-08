@@ -9,7 +9,7 @@ import '../main.dart';
 
 class FirebaseAPI {
   // create a instance of firebase messaging
-  final firebaseMessaging = FirebaseMessaging.instance;
+  final firebaseInstance = FirebaseMessaging.instance;
 
   final androidChannel = const AndroidNotificationChannel(
       'high_importance_channel', 'high_importance_notifications',
@@ -19,8 +19,8 @@ class FirebaseAPI {
 
   //initialize the notification
   Future<void> initNotification() async {
-    firebaseMessaging.requestPermission();
-    final token = await firebaseMessaging.getToken();
+    firebaseInstance.requestPermission();
+    final token = await firebaseInstance.getToken();
     print(token);
     initPushNotification();
     initLocalNotification();
@@ -32,7 +32,7 @@ class FirebaseAPI {
   }
 
   Future<void> initPushNotification() async {
-    firebaseMessaging.getInitialMessage().then(handleMessage);
+    firebaseInstance.getInitialMessage().then(handleMessage);
     FirebaseMessaging.onMessageOpenedApp.listen(handleMessage);
     FirebaseMessaging.onMessage.listen((message) {
       final notification = message.notification;

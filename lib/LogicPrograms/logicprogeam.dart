@@ -1,6 +1,8 @@
 main() {
-  String str = 'madam';
-  checkPalindrome(str);
+  // String str = 'madam';
+  // checkPalindrome(str);
+  int num  = -123;
+  print(num.abs());
 
   //input  = 'aabbcdfggiiim'
   //output = a2b2c1d1f1g2i3m1
@@ -136,8 +138,6 @@ checkGivenNumberIsPalindromeOrNot(int num){
 /**
  * swap numbers logic with out and with temp
  */
-
-
 /*int a = 34;
   int b = 43;
   int c = 77;

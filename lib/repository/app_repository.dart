@@ -8,8 +8,4 @@ class AppRepository {
       return Future.value(false);
     }
   }
-
-
-
-
 }

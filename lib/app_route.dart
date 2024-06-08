@@ -5,6 +5,7 @@ import 'package:flutterBlocOriginal/pages/Notifications/NotificationPage.dart';
 import 'package:flutterBlocOriginal/pages/SignUp/SignUp.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterBlocOriginal/cubit/login_cubit.dart';
+import 'pages/unittest/UnitTestCaseExample.dart';
 import 'pages/LoginPage.dart';
 class AppRouter {
   Route? generateRoute(RouteSettings settings){
@@ -16,6 +17,9 @@ class AppRouter {
               child: Login(),
             )
         );
+
+
+
 
       case "signUp" :
         return MaterialPageRoute(

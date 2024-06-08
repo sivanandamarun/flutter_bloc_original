@@ -61,7 +61,7 @@ class _AppLifeCycleExampleState extends State<AppLifeCycleExample>
        */
       case AppLifecycleState.detached:
       /**
-       *The application is still hosted by a Flutter engine but is detached from any host views.
+       * The application is still hosted by a Flutter engine but is detached from any host views.
        * The application defaults to this state before it initializes,
        * and can be in this state (on Android and iOS only) after all views have been detached.
        * When the application is in this state, the engine is running without a view.

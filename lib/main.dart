@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterBlocOriginal/pages/LoginPage.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'Firebase/FirebaseAPI.dart';
 import 'app_route.dart';
@@ -8,11 +9,14 @@ import 'firebase_options.dart';
 
 final navigatorKey = GlobalKey< NavigatorState>();
 void main() async {
+  const supabaseUrl = 'https://cjzgjwfztsgukvkpuaxs.supabase.co';
+  const supabaseKey = String.fromEnvironment('SUPABASE_KEY');
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   await FirebaseAPI().initNotification();
+  await Supabase.initialize(url: supabaseUrl, anonKey: supabaseKey);
   runApp(MyApp(router: AppRouter()));
 }
 
